@@ -23,7 +23,9 @@ gulp.task('ts', function () {
 	return gulp
 		.src(paths.appJavascript)
 		.pipe(typescript(tscConfig.compilerOptions))
-		.pipe(gulp.dest('app'));
+		.pipe(gulp.dest(function(file) {
+		  return file.base;
+		}));
 });
 
 
